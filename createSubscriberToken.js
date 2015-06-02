@@ -10,7 +10,7 @@ Parse.Cloud.define("createSubToken", function(request, response) {
         var sessionId = object.get("sessionID");
         var subTok = object.get("subscriberToken");
        if(subTok == undefined){
-        var subscriberToken = opentok.generateToken(sessionId, { "role" : opentok.ROLE.SUBSCRIBER});
+        var subscriberToken = opentok.generateToken(sessionId, { "role" : opentok.ROLE.PUBLISHER});
          object.set("subscriberToken", subscriberToken);
          object.save();
          response.success("created subscriberToken.");
